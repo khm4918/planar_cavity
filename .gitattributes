@@ -1,0 +1,2 @@
+constant/polyMesh/faces filter=lfs diff=lfs merge=lfs -text
+constant/polyMesh/points filter=lfs diff=lfs merge=lfs -text
