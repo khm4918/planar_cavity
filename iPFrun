@@ -3,10 +3,16 @@ SCRIPT_DIR="$(cd "$(dirname "${BASH_SOURCE[0]}")" && pwd)"
 export IPFOAM_DIR="$HOME/OpenFOAM/initialProfileFoam/"
 
 # delete constant, system and 0 folders from iPF
-rm -r $IPFOAM_DIR/constant $IPFOAM_DIR/system $IPFOAM_DIR/0
-cp -r $IPFOAM_DIR/base_fields_planar $IPFOAM_DIR/0
+cd $IPFOAM_DIR
+rm -r constant system 0
+cp -r base_fields_planar 0
+
+# remove old createFields file and replace with case template
+rm createFields.H
+cp History/Experimental/plan_cav_rmi/sinusoid_control_ideal.H createFields.H
 
 # run blockMesh in case file and copy constant and system folders
+cd $SCRIPT_DIR
 blockMesh 
 cp -r constant $IPFOAM_DIR/constant
 cp -r system $IPFOAM_DIR/system
