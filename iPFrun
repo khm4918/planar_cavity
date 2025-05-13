@@ -9,7 +9,7 @@ cp -r base_fields_planar 0
 
 # remove old createFields file and replace with case template
 rm createFields.H
-cp History/Experimental/plan_cav_rmi/sinusoid_control_ideal.H createFields.H
+cp History/Experimental/plan_cav_rmi/thickshock_sinusoid_ideal.H createFields.H
 
 # run blockMesh in case file and copy constant and system folders
 cd $SCRIPT_DIR
